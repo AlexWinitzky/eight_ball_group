@@ -31,7 +31,7 @@ class Answers
     answer = @possible_answers.sample
     puts answer
     restart = Questions.new
-    restart.welcome
+    restart.prompt
   end
 
 end

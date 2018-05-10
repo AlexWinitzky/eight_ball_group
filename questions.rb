@@ -2,18 +2,17 @@ require_relative 'eight_ball_group'
 
 class Questions
   def initialize
-    puts "Welcome to the Magic Eight Ball"
-    welcome
+    prompt
   end
 
-  def welcome
-    puts "Type a question to get an answer, or type QUIT to end the program"
+  def prompt
+    puts "\nType a question to get an answer, or type QUIT to end the program"
     user_input
   end
 
   def user_input
-    @input = gets.strip
-    if @input == 'QUIT'
+    input = gets.strip.downcase
+    if input == 'quit'
       puts "\nThanks for playing!"
       exit
     else
@@ -22,4 +21,5 @@ class Questions
   end
 end
 
-welcome = Questions.new
+puts "Welcome to the Magic Eight Ball"
+Questions.new
