@@ -4,7 +4,6 @@ class Questions
   def initialize
     puts "Welcome to the Magic Eight Ball"
     welcome
-    user_input
   end
 
   def welcome
