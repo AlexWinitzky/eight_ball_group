@@ -30,7 +30,8 @@ class Answers
   def pick_answer
     answer = @possible_answers.sample
     puts answer
-    Questions.start
+    restart = Questions.new
+    restart.welcome
   end
 
 end

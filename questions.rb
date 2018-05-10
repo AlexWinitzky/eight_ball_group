@@ -8,12 +8,13 @@ class Questions
 
   def welcome
     puts "Type a question to get an answer, or type QUIT to end the program"
+    user_input
   end
 
   def user_input
     @input = gets.strip
     if @input == 'QUIT'
-      puts "Thanks for playing!"
+      puts "\nThanks for playing!"
       exit
     else
       question = Answers.new
