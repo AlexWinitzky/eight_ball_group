@@ -12,12 +12,7 @@ class Questions
 
   def user_input
     input = gets.strip.downcase
-    if input == 'quit'
-      puts "\nThanks for playing!"
-      exit
-    else
-      question = Answers.new
-    end
+    (input == 'quit') ? (puts "\nThanks for playing!"; exit): question = Answers.new
   end
 end
 
