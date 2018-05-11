@@ -1,6 +1,6 @@
 class Answers
 
-    attr_reader :possible_answers
+    attr_accessor :possible_answers, :possible_answers_backup
   def initialize
     @possible_answers = [
       "It is certain", 
@@ -24,7 +24,19 @@ class Answers
       "Concentrate and ask again",
       "Very doubtful"
     ]
-    pick_answer
+    @possible_answers_backup = @possible_answers.map(&:clone)
+  end
+
+  def add_answer(new_answer)
+    @possible_answers << new_answer
+  end
+
+  def reset_array
+    @possible_answers = @possible_answers_backup.map(&:clone)
+  end
+
+  def check_for_duplicate(word_to_check)
+    @possible_answers.include? word_to_check   
   end
 
   def pick_answer

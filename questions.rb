@@ -1,8 +1,11 @@
 require_relative 'eight_ball_group'
 
+
 class Questions
   def initialize
+    @question = Answers.new
     prompt
+    
   end
 
   def prompt
@@ -12,7 +15,27 @@ class Questions
 
   def user_input
     input = gets.strip.downcase
-    (input == 'quit') ? (puts "\nThanks for playing!"; exit): question = Answers.new
+    add_new_answer if input == "add_answer"
+    
+    if input == "reset_answers"
+      @question.reset_array
+      puts "Answers have been reset."
+      prompt
+    end
+
+    (input == 'quit') ? (puts "\nThanks for playing!"; exit): @question.pick_answer
+  end
+
+  def add_new_answer
+    puts "Type the answer you would like to add, or type DONE to leave this mode"
+    answer_to_add = gets.strip
+    prompt if answer_to_add == "DONE"
+    if @question.check_for_duplicate(answer_to_add)
+      puts "I'm sorry I already know that answer"
+      add_new_answer
+    end
+    @question.add_answer(answer_to_add)
+    add_new_answer
   end
 end
 
