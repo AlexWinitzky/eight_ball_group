@@ -16,10 +16,15 @@ class Questions
   def user_input
     input = gets.strip.downcase
     add_new_answer if input == "add_answer"
-    
+
     if input == "reset_answers"
       @question.reset_array
       puts "Answers have been reset."
+      prompt
+    end
+    
+    if input == "print_answers"
+      puts @question.print_all_answers
       prompt
     end
 

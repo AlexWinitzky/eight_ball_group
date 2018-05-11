@@ -41,9 +41,15 @@ class Answers
 
   def pick_answer
     answer = @possible_answers.sample
-    puts answer
+    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    puts "The Magic 8 Ball says: #{answer}"
+    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     restart = Questions.new
     restart.prompt
+  end
+
+  def print_all_answers
+    @possible_answers
   end
 
 end
